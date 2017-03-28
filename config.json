@@ -1,0 +1,61 @@
+﻿{
+  "testSettings": {
+    "current": "basic",
+    "hostname": "10.111.151.101",
+    "bootPort": "8091",
+    "adminUsername": "Administrator",
+    "adminPassword": "password"
+  },
+
+  "couchbase": {
+    "basic": {
+      "enableConfigHeartbeat": true,
+      "buckets": [
+        {
+          "name": "default",
+          "useEnhancedDurability": false
+        }
+      ]
+    },
+
+    "ssl": {
+      "enableConfigHeartbeat": true,
+      "useSsl": true,
+      "ignoreRemoteCertificateNameMismatch": true,
+      "buckets": [
+        {
+          "name": "default",
+          "useEnhancedDurability": true
+        }
+      ]
+    },
+
+    "multiplexio": {
+      "enableConfigHeartbeat": false,
+      "vBucketRetrySleepTime": 200,
+      "connectionPool": {
+        "type": "Couchbase.IO.ConnectionPool`1[Couchbase.IO.MultiplexingConnection], Couchbase.NetClient"
+      },
+      "ioService": "Couchbase.IO.Services.MultiplexingIOService, Couchbase.NetClient",
+      "buckets": [
+        {
+          "name": "default",
+          "useEnhancedDurability": true
+        },
+        {
+          "name": "travel-sample",
+          "useEnhancedDurability": true
+        }
+      ]
+    },
+    "memcached": {
+      "enableConfigHeartbeat": true,
+      "buckets": [
+        {
+          "name": "memcached",
+          "useEnhancedDurability": false
+        }
+      ]
+    }
+  }
+}
